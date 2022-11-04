@@ -1,4 +1,4 @@
-Disponible online en https://reavenous-food.vercel.app/
+Available online at https://reavenous-food.vercel.app/
 
-Para hacer funcionar el boton de búsqueda y evitar el error 403 , es necesario obtener permiso temporalmente para usar la API a través del siguiente link
+To make the search button work and avoid the 403 error, it is necessary to temporarily obtain permission to use the API through the following link
 https://cors-anywhere.herokuapp.com/corsdemo
