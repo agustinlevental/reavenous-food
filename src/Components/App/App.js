@@ -6,39 +6,23 @@ import BusinessList from '../BusinessList/BusinessList';
 import SearchBar from '../SearchBar/SearchBar';
 import Yelp from "../../util/Yelp"
 
+function App() {
+  const [businesses, setBusinesses] = useState([]);
 
+  const searchYelp = (term, location, sortBy) => {
+    Yelp.search(term, location, sortBy).then((businesses) => {
+      setBusinesses(businesses);
+    });
+  };
 
-class App extends React.Component {
-
-  constructor(props) {
-    super(props);
-    this.state= {
-      businesses : [] ,
-    }
-
-    this.searchYelp = this.searchYelp.bind (this);
-  }
-
-  searchYelp(term,location,sortBy) {
-    console.log("hola")
-    Yelp.search(term,location,sortBy).then ((businesses)=> {
-      this.setState({
-        businesses : businesses 
-      })
-    })
-
-  }
-
-
-  render() {
-    return (
+  return (
     <div className="App">
-    <h1>ravenous</h1>
-    <SearchBar searchYelp = {this.searchYelp}> </SearchBar>
-    <BusinessList businesses  = {this.state.businesses}></BusinessList> 
-  </div>)
-  }
-
+      <h1>ravenous</h1>
+      <SearchBar searchYelp={searchYelp} />
+      <BusinessList businesses={businesses} />
+    </div>
+  );
 }
 
 export default App;
+
